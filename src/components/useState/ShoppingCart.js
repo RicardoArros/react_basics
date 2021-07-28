@@ -17,9 +17,35 @@ const ShoppingCart = () => {
     setCart(changedCart);
   };
 
+  const addProduct = (newProduct) => {
+    newProduct.id = Date.now();
+
+    const changedCart = [newProduct, ...cart];
+
+    setCart(changedCart);
+  };
+
+  const updateProduct = (editProduct) => {
+    const changedCart = cart.map((product) =>
+      product.id === editProduct.id ? editProduct : product
+    );
+    setCart(changedCart);
+  };
+
   return (
     <div>
       <h2>ShoppingCart</h2>
+
+      <button
+        onClick={() =>
+          addProduct({
+            title: "Nuevo titulo",
+            description: "Nueva description",
+          })
+        }
+      >
+        Add
+      </button>
 
       <div>
         {cart.map((product) => (
@@ -28,9 +54,22 @@ const ShoppingCart = () => {
             <p>{product.title}</p>
             <p>{product.description}</p>
             <button onClick={() => deleteProduct(product.id)}>Delete</button>
+            <button
+              onClick={() =>
+                updateProduct({
+                  id: product.id,
+                  title: "Titulo actualizado",
+                  description: "Description actualizado",
+                })
+              }
+            >
+              Update
+            </button>
           </div>
         ))}
       </div>
+
+      <pre>{JSON.stringify(cart, null, 2)}</pre>
     </div>
   );
 };
