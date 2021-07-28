@@ -1,0 +1,63 @@
+@import "../../assets/scss/main.scss";
+
+/* Header Wrapper */
+
+.header__wrapper {
+  height: $height-header-views;
+
+  background-color: $color-background-secondary;
+
+  padding: 1rem;
+
+  border-bottom: 1px solid $color-neutral;
+  border-top-right-radius: $border-radius-primary;
+  border-top-left-radius: $border-radius-primary;
+}
+
+.header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.header__titleContAlt {
+  display: flex;
+  align-items: center;
+}
+
+.header__titleContAlt span {
+  margin-left: 2rem;
+}
+
+/* Header Title */
+
+.header__titleCont .header__title,
+.header__titleContAlt .header__title {
+  font-size: $font-size-title;
+  font-weight: $font-weight-title;
+  color: $color-primary;
+}
+
+.header__titleCont {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: start;
+}
+
+/* Header Btn */
+
+.header__btn {
+  display: inline-block;
+
+  background-color: $color-primary;
+
+  font-size: 14px;
+  color: #fff;
+
+  padding: 0.4rem 0.8rem;
+
+  border: 1px solid $color-primary;
+  border-radius: $border-radius-primary;
+
+  cursor: pointer;
+}
